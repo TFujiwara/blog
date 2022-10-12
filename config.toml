@@ -30,6 +30,7 @@ preserveTaxonomyNames = true
     linkedin = "https://www.linkedin.com/in/cgarciaquevedo/"
     github = "https://github.com/TFujiwara"
     gitlab = "https://gitlab.com/TFujiwara"
+    telegram = "https://t.me/SeguridadInformatica"
 
     # Enables or disables the loading animations. false activates them. Default is false.
     loadfastload = false
