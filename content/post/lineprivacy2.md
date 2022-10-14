@@ -14,7 +14,7 @@ Ahora en lo que voy a centrarme es en la parte de los mensajes, y para ello hare
 
 Asi que, como siempre, vuelvo a entrar en la base de datos de la aplicacion, y esta vez nos dirijimos unicamente a la tabla chat_history.
 
-![](/cap6.png)
+![](/static/img/cap6.png)
 
 Vale, a partir de aquí os empezaré a explicar un poco como almacena LINE nuestro historial de chat. Tenemos una serie de campos en la tabla que pasare a mencionar y a explicar detalladamente para que sirven.
 
