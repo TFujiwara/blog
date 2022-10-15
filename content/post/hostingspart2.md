@@ -1,5 +1,5 @@
 +++
-title = "HOSTINGS: O COMO CAGARLA SOBERANAMENTE - SEGUNDA PARTE"
+title = "Hostings: o como cagarla soberanamente - Segunda Parte"
 description = "Una investigación propia de hace unos años donde demuestro como una vulnerabilidad grave puede perjudicar a un hosting"
 date = "2020-06-08"
 categories = ["Investigacion"]
