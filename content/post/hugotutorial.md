@@ -1,10 +1,10 @@
 +++
 title = "HUGO: Qué es y como realizar nuestro propio blog - Primera parte"
 description = "Un tutorial sobre el framework de static pages HUGO, como configurarlo y desplegarlo en firebase"
-date = "2020-06-08"
+date = "2020-06-09"
 categories = ["Tutoriales"]
 author = "Cristian Garcia Quevedo"
-lastmod = "2020-06-08"
+lastmod = "2020-06-09"
 +++
 Hoy, en esta serie de tutoriales, nos enfocaremos directamente en el framework HUGO y como realizar un sencillo blog o sitio web estático con el.
 
