@@ -62,6 +62,12 @@ preserveTaxonomyNames = true
     weight = 10          # A number to order the buttons in the navbar
 
   [[menu.main]]
+    identifier = "curriculum" # An unique identifier for the button
+    name = "Curriculum Vitae"       # A display name for the button
+    url = "https://tfujiwara.github.io/cv/"      # The path to the content. It can lead to a single page (like here)
+    weight = 10          # A number to order the buttons in the navbar  
+
+  [[menu.main]]
     identifier = "posts"
     name = "All posts"
     url = "/post/"       # The path can lead to a content folder too.
