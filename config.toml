@@ -1,4 +1,4 @@
-baseURL = "https://tfujiwara.github.io/blog/"
+baseURL = "https://blog.tfujiwara.tech"
 title = "El blog de TFujiwara"
 languageCode = "es"
 DefaultContentLanguage = "es" # Change this to change the site's language
