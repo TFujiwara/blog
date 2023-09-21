@@ -21,9 +21,11 @@ Tengo un Grado Medio en SMR y el Grado Superior en Desarrollo de Aplicaciones We
 
 Lo del hacking y demás cosas (Programación, etc) lo aprendí de forma autodidacta.
 
-Formo parte de la comunidad sobre seguridad informática, Whihax Security, haciendo la labor de administrador de sistemas.
+Forme parte de la comunidad sobre seguridad informática, Whihax Security, haciendo la labor de administrador de sistemas.
 
-Dirijo el canal de Telegram sobre seguridad informática, Security News for Everyone, junto con otros miembros de Whihax Security.
+Diriji el canal de Telegram sobre seguridad informática, Security News for Everyone, junto con otros miembros de Whihax Security.
+
+Tras la disolucion de Whihax Security, empece un nuevo proyecto, Chaos as a Service, en el cual, he puesto de nuevo todos mis esfuerzos en el. 
 
 Me encanta leer, sobretodo libros técnicos o novelas de misterio y sobre las series, he visto demasiadas, pero mi favorita es Mr. Robot.
 
