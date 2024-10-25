@@ -11,9 +11,9 @@ lastmod = "2024-10-25"
 Hoy en este articulo hablaremos de esas certificaciones de ciberseguridad que van promocionando por sitios como LinkedIn, 
 pero que lamentablemente, no tienen validez, ni reputación alguna, ya que son un autentico fraude (Más falsas que un billete de tres euros).
 
-El escribir este articulo para darlas a conocer, ha surgido de una amiga de X/Twiiter, [https://x.com/PurpleOperator](PurpleOperator), que empezó a investigarlas a fondo, y han salido muchas certificaciones de este estilo, lamentablemente. 
+El escribir este articulo para darlas a conocer, ha surgido de una amiga de X/Twiiter, [PurpleOperator](https://x.com/PurpleOperator]), que empezó a investigarlas a fondo, y han salido muchas certificaciones de este estilo, lamentablemente. 
 
-También dar las gracias a [https://x.com/Lestat_Dx/](Lestat) por ampliar al detalle todo lo que había mal en esas certificaciones para que la gente lo pudiera ver mucho mas claro. 
+También dar las gracias a [Lestat](https://x.com/Lestat_Dx/) por ampliar al detalle todo lo que había mal en esas certificaciones para que la gente lo pudiera ver mucho mas claro. 
 
 ### ¿Que hay de malo en estas certificaciones?
 
@@ -50,7 +50,7 @@ Y no os dejeis intimidar si contactan con vosotros amenazantes diciendo que reti
 Como bien sabréis, el mundo de la ciberseguridad y de la informática es de aprendizaje continuo, nunca se llega a saber de todo realmente (de ahí lo de "Aprendiz de todo, maestro de nada"), con lo cual, está genial que hagaís certificaciones, pero hacedlas siempre de escuelas o organismos reconocidos a nivel estatal y mundial, y que os den la certeza de que los contenidos 
 que vaís a aprender, junto con las habilidades que vaís a desarrollar, sean de útilidad el día de mañana, además de que os serviran para construir una carrera solida en el sector.
 
-Tenemos que unirnos todos para acabar con la lacra de los vendehumos en nuestro campo y detener la proliferación de estas certificaciones bocachancla, y apoyar iniciativas educativas que si tengan valor y estén destinadas a ser un éxito mundial, como la de mi amigo [https://x.com/The_Rounded_Man](José Manuel Redondo) y su iniciativa **Cobra Kali**, la cual aún está en progreso de
+Tenemos que unirnos todos para acabar con la lacra de los vendehumos en nuestro campo y detener la proliferación de estas certificaciones bocachancla, y apoyar iniciativas educativas que si tengan valor y estén destinadas a ser un éxito mundial, como la de mi amigo [José Manuel Redondo](https://x.com/The_Rounded_Man) y su iniciativa **Cobra Kali**, la cual aún está en progreso de
 acabarse, pero que tiene muy buena pinta. 
 
 Os dejo el enlace a la misma por aquí para que le echeís un ojo: [https://github.com/jose-r-lopez/Formacion_-Seguridad_Joven/wiki](https://github.com/jose-r-lopez/Formacion_-Seguridad_Joven/wiki)
