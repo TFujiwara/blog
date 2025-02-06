@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutoriales on El blog de TFujiwara</title>
+    <link>http://localhost:1313/categories/tutoriales/</link>
+    <description>Recent content in Tutoriales on El blog de TFujiwara</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Fri, 29 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/tutoriales/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Monta tu servidor con hardware de Aliexpress</title>
+      <link>http://localhost:1313/post/diyserver/</link>
+      <pubDate>Fri, 29 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/diyserver/</guid>
+      <description>&lt;h3 id=&#34;introducción&#34;&gt;Introducción&lt;/h3&gt;&#xA;&lt;p&gt;A todos los que somos tanto administradores de sistemas como los que nos dedicamos a ciberseguridad, nos gusta tener nuestro propio laboratorio para poder montar nuestros experimentos, investigaciones o cosas a las que le podemos dar un uso cotidiano como un NAS.&lt;/p&gt;&#xA;&lt;p&gt;Pues bien, en esta guía, os explicaré de forma concisa como montar vuestro propio servidor de torre (Sobremesa) o rack, y ver mas o menos un presupuesto tipico, sin tener que dejarnos medio presupuesto en comprar un servidor HP o de cualquier otra marca, y dejar esos servidores tan caros para el entorno profesional.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HUGO: Qué es y como realizar nuestro propio blog - Primera parte</title>
+      <link>http://localhost:1313/post/hugotutorial/</link>
+      <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/hugotutorial/</guid>
+      <description>&lt;p&gt;Hoy, en esta serie de tutoriales, nos enfocaremos directamente en el framework HUGO y como realizar un sencillo blog o sitio web estático con el.&lt;/p&gt;&#xA;&lt;p&gt;HUGO es un generador de páginas web estáticas rápido y moderno, escrito en el lenguaje de programación Go, y diseñado para hacer la creación de sitios web más amena.&lt;/p&gt;&#xA;&lt;p&gt;Los sitios web que se realizan con Hugo se pueden hostear en cualquier lugar, incluyendo Heroku, Gihub Pages, Gitlab Pages, Firebase, Google Cloud Storage, Amazon S3, Azure y muchos más, y además funciona bien con CDNs. Estos sitios web se ejecutan sin la necesidad de una base de datos o dependencias como Ruby, Python o PHP.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HUGO: Qué es y como realizar nuestro propio blog - Segunda parte</title>
+      <link>http://localhost:1313/post/hugotutorial2/</link>
+      <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/hugotutorial2/</guid>
+      <description>&lt;p&gt;Bienvenidos a esta segunda parte del tutorial del framework HUGO! Como dije al final del post anterior, este cubrirá la creación de la estructura de directorios del blog, además de como crear y editar contenido.&lt;/p&gt;&#xA;&lt;p&gt;Primeramente crearemos la estructura nuestro blog, para ello, crearemos una carpeta donde queramos situar la estructura del mismo. Yo la he creado en Documentos y la he llamado blog.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/img/tuto1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Una vez creada, entramos en la carpeta desde la terminal de comandos, y creamos un nuevo skeleton de HUGO con el siguiente comando:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on El blog de TFujiwara</title>
+    <link>http://localhost:1313/categories/</link>
+    <description>Recent content in Categories on El blog de TFujiwara</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Thu, 06 Feb 2025 01:19:39 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Writeups</title>
+      <link>http://localhost:1313/categories/writeups/</link>
+      <pubDate>Thu, 06 Feb 2025 01:19:39 +0000</pubDate>
+      <guid>http://localhost:1313/categories/writeups/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Investigacion</title>
+      <link>http://localhost:1313/categories/investigacion/</link>
+      <pubDate>Fri, 25 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/investigacion/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tutoriales</title>
+      <link>http://localhost:1313/categories/tutoriales/</link>
+      <pubDate>Fri, 29 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/tutoriales/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Libros</title>
+      <link>http://localhost:1313/categories/libros/</link>
+      <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/libros/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

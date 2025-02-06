@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on El blog de TFujiwara</title>
+    <link>http://localhost:1313/post/</link>
+    <description>Recent content in Posts on El blog de TFujiwara</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Thu, 06 Feb 2025 01:19:39 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tripladvisor - HackMyVM</title>
+      <link>http://localhost:1313/post/2025-02-06-tripladvisor---hackmyvm/</link>
+      <pubDate>Thu, 06 Feb 2025 01:19:39 +0000</pubDate>
+      <guid>http://localhost:1313/post/2025-02-06-tripladvisor---hackmyvm/</guid>
+      <description>&lt;p&gt;Hola a todos, he decidido empezar la sección de Writeups de retos de ciberseguridad con una máquina virtual procedente de HackMyVM, Tripladvisor.&lt;/p&gt;&#xA;&lt;p&gt;Después de descargarnos la máquina virtual de la web, añadirla a VirtualBox y posteriormente arrancar la máquina, procedemos a hacer un reconocimiento inicial donde localizaremos la máquina en nuestra red local, ya que en este tipo de retos, no se nos da la dirección IP de la misma, ya que se deja configurada la tarjeta de red para que un DHCP ya existente le asigne una dirección IP y así poder empezar a trabajar contra esa máquina de forma inmediata.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Certificaciones Bocachancla: El atajo al éxito... o al paro.</title>
+      <link>http://localhost:1313/post/certificacioneshumo/</link>
+      <pubDate>Fri, 25 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/certificacioneshumo/</guid>
+      <description>&lt;h3 id=&#34;introducción&#34;&gt;Introducción&lt;/h3&gt;&#xA;&lt;p&gt;Hoy en este articulo hablaremos de esas certificaciones de ciberseguridad que van promocionando por sitios como LinkedIn,&#xA;pero que lamentablemente, no tienen validez, ni reputación alguna, ya que son un autentico fraude (Más falsas que un billete de tres euros).&lt;/p&gt;&#xA;&lt;p&gt;El escribir este articulo para darlas a conocer, ha surgido de una amiga de X/Twiiter, &lt;a href=&#34;https://x.com/PurpleOperator%5D&#34;&gt;PurpleOperator&lt;/a&gt;, que empezó a investigarlas a fondo, y han salido muchas certificaciones de este estilo, lamentablemente.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Monta tu servidor con hardware de Aliexpress</title>
+      <link>http://localhost:1313/post/diyserver/</link>
+      <pubDate>Fri, 29 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/diyserver/</guid>
+      <description>&lt;h3 id=&#34;introducción&#34;&gt;Introducción&lt;/h3&gt;&#xA;&lt;p&gt;A todos los que somos tanto administradores de sistemas como los que nos dedicamos a ciberseguridad, nos gusta tener nuestro propio laboratorio para poder montar nuestros experimentos, investigaciones o cosas a las que le podemos dar un uso cotidiano como un NAS.&lt;/p&gt;&#xA;&lt;p&gt;Pues bien, en esta guía, os explicaré de forma concisa como montar vuestro propio servidor de torre (Sobremesa) o rack, y ver mas o menos un presupuesto tipico, sin tener que dejarnos medio presupuesto en comprar un servidor HP o de cualquier otra marca, y dejar esos servidores tan caros para el entorno profesional.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HUGO: Qué es y como realizar nuestro propio blog - Primera parte</title>
+      <link>http://localhost:1313/post/hugotutorial/</link>
+      <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/hugotutorial/</guid>
+      <description>&lt;p&gt;Hoy, en esta serie de tutoriales, nos enfocaremos directamente en el framework HUGO y como realizar un sencillo blog o sitio web estático con el.&lt;/p&gt;&#xA;&lt;p&gt;HUGO es un generador de páginas web estáticas rápido y moderno, escrito en el lenguaje de programación Go, y diseñado para hacer la creación de sitios web más amena.&lt;/p&gt;&#xA;&lt;p&gt;Los sitios web que se realizan con Hugo se pueden hostear en cualquier lugar, incluyendo Heroku, Gihub Pages, Gitlab Pages, Firebase, Google Cloud Storage, Amazon S3, Azure y muchos más, y además funciona bien con CDNs. Estos sitios web se ejecutan sin la necesidad de una base de datos o dependencias como Ruby, Python o PHP.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HUGO: Qué es y como realizar nuestro propio blog - Segunda parte</title>
+      <link>http://localhost:1313/post/hugotutorial2/</link>
+      <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/hugotutorial2/</guid>
+      <description>&lt;p&gt;Bienvenidos a esta segunda parte del tutorial del framework HUGO! Como dije al final del post anterior, este cubrirá la creación de la estructura de directorios del blog, además de como crear y editar contenido.&lt;/p&gt;&#xA;&lt;p&gt;Primeramente crearemos la estructura nuestro blog, para ello, crearemos una carpeta donde queramos situar la estructura del mismo. Yo la he creado en Documentos y la he llamado blog.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/img/tuto1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Una vez creada, entramos en la carpeta desde la terminal de comandos, y creamos un nuevo skeleton de HUGO con el siguiente comando:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bash en Windows 10: ¿Es seguro? ¿O monto mejor un arranque dual?</title>
+      <link>http://localhost:1313/post/bashw10/</link>
+      <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/bashw10/</guid>
+      <description>&lt;p&gt;A todos nos pareció genial que Microsoft introdujera Linux en su sistema privativo mediante una alianza con Canonical para apaciguar los ánimos de la comunidad GNU y así posicionarse con algo que esta en aumento, el numero de equipos domésticos, de empresa, y demás, que usan Linux.&lt;/p&gt;&#xA;&lt;p&gt;Además, para poder usar esta característica, hace falta activar el modo desarrrollador de Windows 10.&lt;/p&gt;&#xA;&lt;p&gt;Pero&amp;hellip; ¿Cuán seguro es el subsistema Linux implementado por Microsoft en Windows 10?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hackstory: La historia jamas contada del mundo underground hacker en España</title>
+      <link>http://localhost:1313/post/hackstory/</link>
+      <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/hackstory/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/img/cover_hackstory.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Conozcamos a Mercè Molist, a.k.a morgana, M&amp;amp;M o merce.&lt;/p&gt;&#xA;&lt;p&gt;Una chica de pueblo que en 1995 entro en el oscuro mundo de Internet.&lt;/p&gt;&#xA;&lt;p&gt;Es, como explica el wiki que le fue origen, Hackstory.net, “lo que sabemos sobre la historia de los hackers”.&lt;/p&gt;&#xA;&lt;p&gt;En definitiva, un libro que os recomiendo si quereís escapar de las tardes de aburrimiento.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://hackstory.es/ebook/epub&#34;&gt;Descarga el libro en EPUB&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://hackstory.es/ebook/pdf&#34;&gt;Descarga el libro en PDF&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://hackstory.es/ebook/mobi&#34;&gt;Descarga el libro en MOBI&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hostings: o como cagarla soberanamente - Primera Parte</title>
+      <link>http://localhost:1313/post/hostings/</link>
+      <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/hostings/</guid>
+      <description>&lt;p&gt;Hola a todos otra vez. Hoy os vengo a hablar de los hostings, ese caso aparte donde te pueden joder (y arruinar) vivo si tienes una vulnerabilidad grave y se hacen con el control de tu servidor al completo. Así que siguiendo la misma pauta de siempre, voy a contaros como dos hostings que son en mayor o menor medida, importantes, la han cagado pero bien, y se arriesgan a perderlo todo si se hace un Full-Disclosure de la vulnerabilidad o vulnerabilidades presentes en su servidor.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hostings: o como cagarla soberanamente - Segunda Parte</title>
+      <link>http://localhost:1313/post/hostingspart2/</link>
+      <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/hostingspart2/</guid>
+      <description>&lt;p&gt;Buenas a todos otra vez, como ya sabreis, os prometí la segunda parte de esto y aquí esta. Asi que sin mas dilacion, empezemos.&lt;/p&gt;&#xA;&lt;p&gt;Esta vez nos desplazamos a Gijón, para poder, con este articulo, finalizar la historia que empezé antes.&lt;/p&gt;&#xA;&lt;p&gt;Esta empresa es un show puro y duro, ademas del exponente maximo de caradurismo. Solo hay que hacer una busqueda en Google de dicha empresa, y aparece directamente en trabajobasura.info, y cuando tu empresa aparece alli, algo malo has hecho o estas haciendo. Y los comentarios (del año pasado, por cierto) de esa pagina hablan por si solos, hay gente descontenta por lo que parece.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Librerouter: El router open source</title>
+      <link>http://localhost:1313/post/librerouter/</link>
+      <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/librerouter/</guid>
+      <description>&lt;p&gt;Recientemente han salido varias noticias en las que vemos como las agencias federales ponen trabas legales a la modificación o reemplazo del firmware de un router, como por ejemplo, el caso de la FCC, que quería impedir que los routers Linksys WRT cargaran, pero que mantienen. O los TP-Link, que bloquean el firmware de código abierto de forma tajante.&lt;/p&gt;&#xA;&lt;p&gt;Para evitar esas regulaciones absurdas y darle una solución viable al publico en general, nace el proyecto LibreRouter, un router open source pensado para trabajar bajo el firmware OpenWRT, y que ayude a los usuarios a poder instalar y mantener vías alternativas de conectividad.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LINE y su privacidad - Primera parte</title>
+      <link>http://localhost:1313/post/lineprivacy/</link>
+      <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/lineprivacy/</guid>
+      <description>&lt;p&gt;Hoy vamos a analizar la conocida aplicación de mensajería instantanea para android llamada LINE.&lt;/p&gt;&#xA;&lt;p&gt;LINE, como ya sabeis es una aplicación de mensajería instantánea propia para teléfonos móviles, PC y Mac. Además de la mensajería básica, los usuarios de la aplicación disponen de envío de imágenes, vídeo, mensajes de audio y hacer llamadas VoIP. La aplicación es reconocida por sus singular sistema de pegatinas (stickers), reemplazando a los tradicionales iconos.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LINE y su privacidad - Segunda parte</title>
+      <link>http://localhost:1313/post/lineprivacy2/</link>
+      <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/lineprivacy2/</guid>
+      <description>&lt;p&gt;Segundas partes nunca fueron buenas, o eso dicen. Pero aqui estoy yo, escribiendo este post el dia de San Valentin, fiesta empalagosa donde las haya. (digo esto por que no tengo pareja, pero acabare igual que los demás cuando tenga novia).&lt;/p&gt;&#xA;&lt;p&gt;Haciendo un resumen rapido de la primera parte, vimos que LINE guarda sus datos (historial de chat, contactos, etc) en la raíz del dispositivo android y que utilizaba unos permisos especiales para poder acceder alli y tener permisos de escritura y lectura.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

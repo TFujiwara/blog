@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>El blog de TFujiwara</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#000084" />
+    <link rel="icon" href="http://localhost:1313//favicon.ico">
+    <link rel="canonical" href="http://localhost:1313/">
+    
+    
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></button>
+            <a class="brand" href="http://localhost:1313/">El blog de TFujiwara</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    
+                    
+                        
+                            <li>
+                                <a href="https://tfujiwara.github.io/cv/">
+                                    
+                                    <span>Curriculum Vitae</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/about/">
+                                    
+                                    <span>Sobre mí</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/post/">
+                                    
+                                    <span>All posts</span>
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav><div id="content" class="container">
+
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>LINE y su privacidad - Segunda parte - Mon, Jun 8, 2020</h1>
+    </div>
+    <p class="lead">Una investigación sobre la aplicación de mensajeria LINE, la cual no respeta la privacidad de sus usuarios y permite alterar de forma facil los mensajes</p>
+    <p>Segundas partes nunca fueron buenas, o eso dicen. Pero aqui estoy yo, escribiendo este post el dia de San Valentin, fiesta empalagosa donde las haya. (digo esto por que no tengo pareja, pero acabare igual que los demás cuando tenga novia).</p>
+<p>Haciendo un resumen rapido de la primera parte, vimos que LINE guarda sus datos (historial de chat, contactos, etc) en la raíz del dispositivo android y que utilizaba unos permisos especiales para poder acceder alli y tener permisos de escritura y lectura.</p>
+<p>Ahora en lo que voy a centrarme es en la parte de los mensajes, y para ello hare uso de mi terminal android (un S3 mini) y SQLite Editor como la primera vez, para veais con que facilidad un malware puede cambiar o crear una entrada del historial de chats e incluso crear un chat, para poder, por ejemplo, enviarnos un enlace a un apk con contenido malicioso (que puede estar alojado en Google Play o no).</p>
+<p>Asi que, como siempre, vuelvo a entrar en la base de datos de la aplicacion, y esta vez nos dirijimos unicamente a la tabla chat_history.</p>
+<p><img src="/blog/img/cap6.png" alt=""></p>
+<p>Vale, a partir de aquí os empezaré a explicar un poco como almacena LINE nuestro historial de chat. Tenemos una serie de campos en la tabla que pasare a mencionar y a explicar detalladamente para que sirven.</p>
+<p>ID : Es el identificador del chat, no tengo más explicación para esto.</p>
+<p>server_ID : Es el identificador del servidor desde donde se ha enviado o recibido el mensaje.</p>
+<p>type : El tipo de chat que es, el campo es un Integer con valores del 1 al 5.</p>
+<p>chat_id : el Identificador del chat, en este caso el identificador del chat es igual al siguiente campo que voy a explicar.</p>
+<p>m_id (member ID) : Este es el identificador que es igual al del chat_id, este identificador es el identificador de miembro de LINE, el mismo que podemos consultar en la tabla contacts.</p>
+<p>content : Este es el contenido del chat, aqui podeis poner lo que os de la real gana.</p>
+<p>created_time : Tiempo (en segundos) en el que se creo el mensaje. Normalmente son Horas y Minutos.</p>
+<p>delivered_time : Tiempo (en segundos) en el que se recibio el mensaje. Normalmente son Horas y Minutos.</p>
+<p>status : Estado del mensaje. El campo es un Integer con valores del 1 al 5.</p>
+<p>sent_count : Esto es para saber cuantos mensajes se han enviado. Normalmente es 1. Esto cuenta los mensajes que hemos enviado al servidor para que la app los cuente.</p>
+<p>read_count : Esto nos sirve para saber si se ha leido el mensaje o no. Normalmente es 1. Esto cuenta los mensajes que hemos leido para que la app los cuente.</p>
+<p>Los campos que vienen mas adelante nos indican el nombre, direccion, coordenadas GPS que muestra la localizacion del telefono en ese instante, si hemos adjuntado alguna imagen o no, su tamaño, el tipo de adjunto que es, la URL local del adjunto (si es que la tiene) y un bonito campo llamado parameter para poder insertar ciertos parametros.</p>
+<p>Vale, ahora como podemos modificar un mensaje?</p>
+<p>Pues vamos por partes, como dijo alguna vez Jack el Destripador.</p>
+<p>Lo primero de todo es seleccionar el m_id de uno de tus contactos cualquiera de LINE, el cual lo sacaremos de la tabla contacts.</p>
+<p>Lo segundo que vamos a hacer, es crear un chat. Para ello usamos la tabla chat de la base de datos.</p>
+<p>Metemos en el chat_id el m_id de nuestro contacto. El chat_name lo dejaremos vacio, ya que por lo visto no le hace falta a LINE para abrir un chat.</p>
+<p>Ahora el owner_id sera nuestro m_id, el de nuestro usuario de LINE. En last_from_mid meteremos el m_id de nuestro contacto si quieres que muestre el mensaje de ese contacto o que parezca que tu has enviado uno.</p>
+<p>En el campo last_message, introducid el ultimo mensaje que se supone que habeis recibido de ese chat.</p>
+<p>last_created_time funciona igual que el created_time de la tabla chat_history asi que lo obviaremos.</p>
+<p>A partir de aqui estan los campos message_count y read_message_count, que recojen el count que se realiza a partir de la tabla chat_history.</p>
+<p>is_notification es un valor true o false que le indica a LINE si ese chat va a generar notificaciones push.</p>
+<p>Los ultimos tres campos son campos que a mi parecer no son importantes para lo que estoy exponiendo en este post, asi que los obviare. Si tenéis alguna duda de lo que hacen esos tres ultimos campos no dudéis en preguntarmelo.</p>
+<p>Ahora con el chat creado en la tabla chat, nos vamos a chat_history, rellenamos los campos e voila.</p>
+<p>Parece que tenemos un nuevo mensaje de uno de nuestros contactos :)</p>
+
+    <h4><a href="http://localhost:1313/"></a></h4>
+</div>
+
+
+        </div><footer class="container">
+    <hr class="soften">
+    <p>
+&copy; 
+
+    Cristian Garcia Quevedo
+
+<span id="thisyear">2025</span>
+
+    | El blog de TFujiwara
+
+
+</p>
+    <p class="text-center">
+        
+        <a href="https://twitter.com/TFujiwara86">Twitter</a> 
+        <a href="https://www.linkedin.com/in/cgarciaquevedo/">Linkedin</a> 
+        <a href="https://github.com/TFujiwara">GitHub</a> 
+        <a href="https://gitlab.com/TFujiwara">GitLab</a>
+    </p>
+</footer>
+
+</body><link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/bootstrap-responsive.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap-386.js"></script>
+<script src="/js/bootstrap-transition.js"></script>
+<script src="/js/bootstrap-alert.js"></script>
+<script src="/js/bootstrap-modal.js"></script>
+<script src="/js/bootstrap-dropdown.js"></script>
+<script src="/js/bootstrap-scrollspy.js"></script>
+<script src="/js/bootstrap-tab.js"></script>
+<script src="/js/bootstrap-tooltip.js"></script>
+<script src="/js/bootstrap-popover.js"></script>
+<script src="/js/bootstrap-button.js"></script>
+<script src="/js/bootstrap-collapse.js"></script>
+<script src="/js/bootstrap-carousel.js"></script>
+<script src="/js/bootstrap-typeahead.js"></script>
+<script src="/js/bootstrap-affix.js"></script>
+<script>
+    _386 = { 
+        fastLoad: false ,
+        onePass: false , 
+        speedFactor: 1 
+    };
+
+    
+    function ThisYear() {
+        document.getElementById('thisyear').innerHTML = new Date().getFullYear();
+    };
+</script>
+</html>

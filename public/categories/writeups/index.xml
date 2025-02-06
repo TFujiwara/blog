@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Writeups on El blog de TFujiwara</title>
+    <link>http://localhost:1313/categories/writeups/</link>
+    <description>Recent content in Writeups on El blog de TFujiwara</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Thu, 06 Feb 2025 01:19:39 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/writeups/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tripladvisor - HackMyVM</title>
+      <link>http://localhost:1313/post/2025-02-06-tripladvisor---hackmyvm/</link>
+      <pubDate>Thu, 06 Feb 2025 01:19:39 +0000</pubDate>
+      <guid>http://localhost:1313/post/2025-02-06-tripladvisor---hackmyvm/</guid>
+      <description>&lt;p&gt;Hola a todos, he decidido empezar la sección de Writeups de retos de ciberseguridad con una máquina virtual procedente de HackMyVM, Tripladvisor.&lt;/p&gt;&#xA;&lt;p&gt;Después de descargarnos la máquina virtual de la web, añadirla a VirtualBox y posteriormente arrancar la máquina, procedemos a hacer un reconocimiento inicial donde localizaremos la máquina en nuestra red local, ya que en este tipo de retos, no se nos da la dirección IP de la misma, ya que se deja configurada la tarjeta de red para que un DHCP ya existente le asigne una dirección IP y así poder empezar a trabajar contra esa máquina de forma inmediata.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

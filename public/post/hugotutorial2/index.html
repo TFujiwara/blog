@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>El blog de TFujiwara</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#000084" />
+    <link rel="icon" href="http://localhost:1313//favicon.ico">
+    <link rel="canonical" href="http://localhost:1313/">
+    
+    
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></button>
+            <a class="brand" href="http://localhost:1313/">El blog de TFujiwara</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    
+                    
+                        
+                            <li>
+                                <a href="https://tfujiwara.github.io/cv/">
+                                    
+                                    <span>Curriculum Vitae</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/about/">
+                                    
+                                    <span>Sobre mí</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/post/">
+                                    
+                                    <span>All posts</span>
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav><div id="content" class="container">
+
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>HUGO: Qué es y como realizar nuestro propio blog - Segunda parte - Tue, Jun 9, 2020</h1>
+    </div>
+    <p class="lead">Un tutorial sobre el framework de static pages HUGO, como configurarlo y desplegarlo en firebase</p>
+    <p>Bienvenidos a esta segunda parte del tutorial del framework HUGO! Como dije al final del post anterior, este cubrirá la creación de la estructura de directorios del blog, además de como crear y editar contenido.</p>
+<p>Primeramente crearemos la estructura nuestro blog, para ello, crearemos una carpeta donde queramos situar la estructura del mismo. Yo la he creado en Documentos y la he llamado blog.</p>
+<p><img src="/blog/img/tuto1.png" alt=""></p>
+<p>Una vez creada, entramos en la carpeta desde la terminal de comandos, y creamos un nuevo skeleton de HUGO con el siguiente comando:</p>
+<p><strong>hugo new site <!-- raw HTML omitted --></strong></p>
+<p>Al ejecutarlo, nos saldrá el siguiente mensaje:</p>
+<p><img src="/blog/img/tuto2.png" alt=""></p>
+<p>Indicándonos que ya tenemos la estructura de directorios lista para usar, y que tendremos que descargar un tema para darle un aspecto visual llamativo al blog, además de indicarnos que podemos lanzar el servidor de desarrollo para poder ver los cambios que realicemos en el sitio web en tiempo real.</p>
+<p>Una vez realizado, cambiaremos de directorio a la carpeta correspondiente con el nombre del proyecto, en este caso, test, y podremos visualizar la estructura de directorios de HUGO.</p>
+<p>La estructura de directorios de HUGO es la siguiente:</p>
+<p><img src="/blog/img/tuto3.png" alt=""></p>
+<p>Los temas o plantillas para la web los podemos conseguir aquí: <a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a></p>
+<p>Para este ejemplo elegiremos uno para realizar un CV online (<a href="https://themes.gohugo.io/hugo-devresume-theme/">https://themes.gohugo.io/hugo-devresume-theme/</a>), pero tenemos también temas disponibles para realizar un blog, etc.</p>
+<p>Para instalar el tema, simplemente cambiaremos al directorio themes de la estructura basica de HUGO y clonaremos el tema desde Github en esa carpeta con el comando <strong>git clone</strong> <a href="https://github.com/cowboysmall-tools/hugo-devresume-theme">https://github.com/cowboysmall-tools/hugo-devresume-theme</a></p>
+<p>Una vez clonado, entramos en la carpeta del tema, y dentro de la misma, nos encontraremos una llamada <strong>exampleSite</strong>, esta contiene la configuración necesaria para que funcione el tema en un archivo llamado <strong>config.toml</strong> que deberemos copiar y pegar en la raíz de la carpeta de nuestro proyecto.</p>
+<p>Una vez lo tengamos copiado, ya podremos ejecutar el servidor web interno de HUGO, con el cual, podremos ver los cambios que hagamos en nuestra web,en vivo y en directo. Este servidor lo arracaremos con el comando <strong>hugo serve</strong> y accederemos a la web mediante nuestro navegador web favorito y poniendo <strong>localhost:1313</strong> en la barra de direcciones.</p>
+<p><img src="/blog/img/tuto4.png" alt=""></p>
+<p>Recomiendo antes que nada, cambiar en el config.toml, la variable <strong>baseURL</strong> para que apunte a <strong>/</strong>, por que si no, da problemas al cambiar de página en Firebase y cambiar la variable <strong>languagecode</strong> por el lenguaje que estemos usando en el blog, por ejemplo, <strong>es</strong>.</p>
+<p>Ahora vamos a pasar a la creación y modificación del contenido del blog o web. Vale, y como hacemos esto?</p>
+<p>En HUGO, para facilitar la tarea de creación de contenido, disponemos de Archetypes, que son templates o plantillas situadas en el directorio Archetypes de nuestro proyecto, que contienen parámetros ya preconfigurados y también una disposición del contenido apropiada para nuestras webs. Estas se pueden usar ejecutando un comando dentro de la carpeta del proyecto: <strong>hugo new posts/hola-mundo.md.</strong></p>
+<p>Esto creará un archivo nuevo de contenido en la ruta content/posts/hola-mundo.md usando el primer archivo de archetype que encuentre de esta lista:</p>
+<p>archetypes/posts.md
+archetypes/default.md
+themes/my-theme/archetypes/posts.md
+themes/my-theme/archetypes/default.md</p>
+<p>También podemos realizarlo de forma manual, como, por ejemplo, en el caso de mi blog, donde copio y pego el <strong>front matter</strong> o las cabeceras del fichero Markdown que identifican al contenido de dentro como un post.</p>
+<p><img src="/blog/img/tuto5.png" alt=""></p>
+<p>Cada tema llevará sus archetypes especificos, y los podremos copiar a nuestro proyecto desde su carpeta.</p>
+<p>También puede diferir de que el tema, como es con el caso del CV online, no tenga contenido y este esté definido en la propia configuración del sitio, en el archivo <strong>config.toml</strong> y lo tengamos que modificar directamente desde ahí.</p>
+<p>El <strong>front matter</strong> lleva sus propias variables definidas, donde, por ejemplo, como es en el caso de un blog, podemos decir a que categoría pertenece el post, que alias tiene, las taxonomías, el autor del post, la fecha del mismo y el titulo y su descripción.</p>
+<p><img src="/blog/img/tuto6.png" alt="Muestra del config.toml del CV online"></p>
+<p>Todo el contenido se guarda y distribuye en archivos de formato Markdown (.md), con lo cual, es aconsejable mirar esta guía del marcado para tener una ayuda a la hora de escribir los posts: <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet</a></p>
+<p>El contenido que se escriba en los posts va despúes del <strong>front matter</strong>, el comienzo del cual he delimitado en la imagen con una flecha roja, y salvo alguna variación en forma de shortcodes para insertar imagenes más rápido o cierto contenido dinámico, el resto del marcado funciona igual que en la guía.</p>
+<p><img src="/blog/img/tuto7.png" alt="Despúes de la flecha roja es donde empezaría el contenido del post"></p>
+<p>Algunos de los shortcodes disponibles están en esta web: <a href="https://gohugo.io/content-management/shortcodes/">https://gohugo.io/content-management/shortcodes/</a></p>
+<p>Con esto, ya tendríamos lo básico para realizar un blog o página web con HUGO.</p>
+<p>Ahora, solo nos falta subir la web, podemos hacerlo en cualquier plataforma que admita static pages, pero en este caso, elegiré Firebase por la comodidad y sencillez del mismo.</p>
+<p>Para poder subir el sitio web a Firebase, primeramente, deberemos entrar en el panel y crear un nuevo proyecto.</p>
+<p>Una vez lo tengamos creado, nos iremos a nuestra terminal, e instalaremos Node.JS si no lo tenemos instalado en el sistema.</p>
+<p>Una vez instalado, ejecutaremos el siguiente comando para instalar de forma global las firebase-tools, que nos serán necesarias para subir el sitio web a la plataforma: <strong>npm install -g firebase-tools</strong></p>
+<p>Una vez instaladas las herramientas, nos loguearemos en firebase con el comando <strong>firebase login.</strong></p>
+<p>Una vez logueados, nos iremos a la raíz de nuestro proyecto de HUGO, e inicializaremos el proyecto de firebase con el comando <strong>firebase init</strong>, y seguiremos los siguientes pasos en el asistente que nos saldrá en la consola:</p>
+<p>Elegimos Hosting en la primera pantalla.
+Elegimos el proyecto que habremos creado anteriormente en Firebase
+Aceptamos la ruta por defecto para el fichero de bases de datos
+Aceptamos la ruta por defecto de publicación de la web, que es <strong>public</strong>
+Elegiremos que no a la pregunta de si estamos desplegando una app de una sola página.</p>
+<p>Ahora, solo nos queda desplegarlo. Esto lo haremos con el comando <strong>hugo &amp;&amp; firebase deploy</strong>, y al terminar de ejecutarse el comando, nos dará la dirección web donde estará disponible nuestra web, que en todos los casos, es el ID del proyecto de firebase, seguido de <strong>web.app.</strong></p>
+<p>Con esto concluimos el tutorial de HUGO! Espero que os haya gustado y os sea de utilidad para crear un blog, web corporativa, etc&hellip;</p>
+
+    <h4><a href="http://localhost:1313/"></a></h4>
+</div>
+
+
+        </div><footer class="container">
+    <hr class="soften">
+    <p>
+&copy; 
+
+    Cristian Garcia Quevedo
+
+<span id="thisyear">2025</span>
+
+    | El blog de TFujiwara
+
+
+</p>
+    <p class="text-center">
+        
+        <a href="https://twitter.com/TFujiwara86">Twitter</a> 
+        <a href="https://www.linkedin.com/in/cgarciaquevedo/">Linkedin</a> 
+        <a href="https://github.com/TFujiwara">GitHub</a> 
+        <a href="https://gitlab.com/TFujiwara">GitLab</a>
+    </p>
+</footer>
+
+</body><link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/bootstrap-responsive.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap-386.js"></script>
+<script src="/js/bootstrap-transition.js"></script>
+<script src="/js/bootstrap-alert.js"></script>
+<script src="/js/bootstrap-modal.js"></script>
+<script src="/js/bootstrap-dropdown.js"></script>
+<script src="/js/bootstrap-scrollspy.js"></script>
+<script src="/js/bootstrap-tab.js"></script>
+<script src="/js/bootstrap-tooltip.js"></script>
+<script src="/js/bootstrap-popover.js"></script>
+<script src="/js/bootstrap-button.js"></script>
+<script src="/js/bootstrap-collapse.js"></script>
+<script src="/js/bootstrap-carousel.js"></script>
+<script src="/js/bootstrap-typeahead.js"></script>
+<script src="/js/bootstrap-affix.js"></script>
+<script>
+    _386 = { 
+        fastLoad: false ,
+        onePass: false , 
+        speedFactor: 1 
+    };
+
+    
+    function ThisYear() {
+        document.getElementById('thisyear').innerHTML = new Date().getFullYear();
+    };
+</script>
+</html>

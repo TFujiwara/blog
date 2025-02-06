@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>El blog de TFujiwara</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#000084" />
+    <link rel="icon" href="http://localhost:1313//favicon.ico">
+    <link rel="canonical" href="http://localhost:1313/">
+    
+    
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></button>
+            <a class="brand" href="http://localhost:1313/">El blog de TFujiwara</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    
+                    
+                        
+                            <li>
+                                <a href="https://tfujiwara.github.io/cv/">
+                                    
+                                    <span>Curriculum Vitae</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/about/">
+                                    
+                                    <span>Sobre mí</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/post/">
+                                    
+                                    <span>All posts</span>
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav><div id="content" class="container">
+
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>Hostings: o como cagarla soberanamente - Segunda Parte - Mon, Jun 8, 2020</h1>
+    </div>
+    <p class="lead">Una investigación propia de hace unos años donde demuestro como una vulnerabilidad grave puede perjudicar a un hosting</p>
+    <p>Buenas a todos otra vez, como ya sabreis, os prometí la segunda parte de esto y aquí esta. Asi que sin mas dilacion, empezemos.</p>
+<p>Esta vez nos desplazamos a Gijón, para poder, con este articulo, finalizar la historia que empezé antes.</p>
+<p>Esta empresa es un show puro y duro, ademas del exponente maximo de caradurismo. Solo hay que hacer una busqueda en Google de dicha empresa, y aparece directamente en trabajobasura.info, y cuando tu empresa aparece alli, algo malo has hecho o estas haciendo. Y los comentarios (del año pasado, por cierto) de esa pagina hablan por si solos, hay gente descontenta por lo que parece.</p>
+<p>Nunca esta demás corroborar y comprobar que lo que dicen en esos comentarios es cierto. Y como decía en el primer comentario, le he pasado el W3c validator, y aunque pongan que usan XHTML y el logo de W3c en la pagina, no esta validado ni lo estará nunca si no corrigen los 69 errores que devuelve.</p>
+<p>Y ahora pasamos al test de campo, en el que siempre suelo comprobar primero si existe una vulnerabilidad de Inyeccion SQL y si no existe busco otras vulnerabilidades o configuraciones mal hechas.</p>
+<p>En este caso cogí una web cualquiera y me puse a mirar por encima. Parece ser que no hay por donde mirar, pero como siempre, la barra de direcciones me delata las cosas. Al acceder a un articulo de la web, me encuentro con el mismo panorama que en la empresa de Granada, solo que en esta pega el cante que no veas (/index.php/id/11/objeto/).</p>
+<p>Enseguida que le hago la técnica del codo-comílla delante de /objeto/, la web se queja, mira tu por donde.</p>
+<p>Extraigo los usuarios de la base de datos con sqlmap, y me voy a otra web, hago lo mismo y encuentro a un usuario que se repite en la anterior web, con la misma contraseña. Madre mía….</p>
+<p>Me voy directamente al panel, entro y veo una advertencia recordandole al administrador la importancia de la implantacion de la LOPD por parte de esa empresa, que en este caso, es nula.</p>
+<p>Y ahora viene lo mejor, me voy a revisar la parte del panel que pone Datos y allí estan los datos de la empresa, metadatos, etc.</p>
+<p>Veo un apartado que pone “documentación”, y le doy clic, pensándome que seria algún manual sobre el CMS o algo así. Que va, para nada. Ahí estaba, guardado en el mismo dominio, en un puto PDF&hellip; LAS CONTRASEÑAS DE TODO EL SITIO. Contraseñas de emails, panel de administrador, estadísticas&hellip; y el ISPConfig (es un cpanel Open-Source con licencia BSD) del dominio, pudiendo acceder y subir archivos vía Web-FTP.</p>
+<p>Ya que tenia la ruta de la documentación, me dije a mi mismo: “esto seguramente este así en todas las paginas web que hayan diseñado, probaré en otra a ver”. Y exacto, acerté con mi premonición. Todos y cada uno de los sitios web de esa empresa, tenían la documentación en esa misma ruta.</p>
+<p>De hecho tambien me pasee por su pagina principal, la unica que no tenia documentacion, pero he logrado acceder tambien a su panel.</p>
+<p>Y con esto, pongo fin a esta investigación, donde, como podreís comprobar, es imprescindible que si contratamos un hosting, sepamos con quien trabajamos, como trabajan y que cumplan toda la normativa referente a ciberseguridad para evitar sustos o males mayores.</p>
+
+    <h4><a href="http://localhost:1313/"></a></h4>
+</div>
+
+
+        </div><footer class="container">
+    <hr class="soften">
+    <p>
+&copy; 
+
+    Cristian Garcia Quevedo
+
+<span id="thisyear">2025</span>
+
+    | El blog de TFujiwara
+
+
+</p>
+    <p class="text-center">
+        
+        <a href="https://twitter.com/TFujiwara86">Twitter</a> 
+        <a href="https://www.linkedin.com/in/cgarciaquevedo/">Linkedin</a> 
+        <a href="https://github.com/TFujiwara">GitHub</a> 
+        <a href="https://gitlab.com/TFujiwara">GitLab</a>
+    </p>
+</footer>
+
+</body><link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/bootstrap-responsive.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap-386.js"></script>
+<script src="/js/bootstrap-transition.js"></script>
+<script src="/js/bootstrap-alert.js"></script>
+<script src="/js/bootstrap-modal.js"></script>
+<script src="/js/bootstrap-dropdown.js"></script>
+<script src="/js/bootstrap-scrollspy.js"></script>
+<script src="/js/bootstrap-tab.js"></script>
+<script src="/js/bootstrap-tooltip.js"></script>
+<script src="/js/bootstrap-popover.js"></script>
+<script src="/js/bootstrap-button.js"></script>
+<script src="/js/bootstrap-collapse.js"></script>
+<script src="/js/bootstrap-carousel.js"></script>
+<script src="/js/bootstrap-typeahead.js"></script>
+<script src="/js/bootstrap-affix.js"></script>
+<script>
+    _386 = { 
+        fastLoad: false ,
+        onePass: false , 
+        speedFactor: 1 
+    };
+
+    
+    function ThisYear() {
+        document.getElementById('thisyear').innerHTML = new Date().getFullYear();
+    };
+</script>
+</html>

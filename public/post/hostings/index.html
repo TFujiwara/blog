@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>El blog de TFujiwara</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#000084" />
+    <link rel="icon" href="http://localhost:1313//favicon.ico">
+    <link rel="canonical" href="http://localhost:1313/">
+    
+    
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></button>
+            <a class="brand" href="http://localhost:1313/">El blog de TFujiwara</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    
+                    
+                        
+                            <li>
+                                <a href="https://tfujiwara.github.io/cv/">
+                                    
+                                    <span>Curriculum Vitae</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/about/">
+                                    
+                                    <span>Sobre mí</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/post/">
+                                    
+                                    <span>All posts</span>
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav><div id="content" class="container">
+
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>Hostings: o como cagarla soberanamente - Primera Parte - Mon, Jun 8, 2020</h1>
+    </div>
+    <p class="lead">Una investigación propia de hace unos años donde demuestro como una vulnerabilidad grave puede perjudicar a un hosting</p>
+    <p>Hola a todos otra vez. Hoy os vengo a hablar de los hostings, ese caso aparte donde te pueden joder (y arruinar) vivo si tienes una vulnerabilidad grave y se hacen con el control de tu servidor al completo. Así que siguiendo la misma pauta de siempre, voy a contaros como dos hostings que son en mayor o menor medida, importantes, la han cagado pero bien, y se arriesgan a perderlo todo si se hace un Full-Disclosure de la vulnerabilidad o vulnerabilidades presentes en su servidor.</p>
+<p>Bueno, pues comencemos con esto. Nos desplazamos hasta Granada para empezar a contar nuestra historia.</p>
+<p>Día si y día también, me paso los días detrás del ordenador viendo otras empresas de hosting y diseño web, para ver que tipo de trabajos hacen y si me convence la maquetación de las mismas y mirar a ver si puedo copiarles algo que me pueda ayudar de cara al futuro venidero.</p>
+<p>Viendo una de estas paginas, descubro algo que me llama muchísimo la atención, y es que tanto lo que es producto.php?id= y el id del producto van separados por barras (/). Suele ser una particularidad de un CMS propio, pero ya que me llamo la atención, por que no probar a ver si era Inyectable con parámetros SQL, para saber si el CMS estaba bien hecho o por el contrario, era una putísima mierda y había que arreglarlo cuanto antes.</p>
+<p>Pasando directamente a la acción, compruebo que el parámetro es vulnerable pero me encuentro con una sorpresa, me devuelve un error 404.</p>
+<p><img src="/blog/img/4041.png" alt=""></p>
+<p>Una vez que me había devuelto el maravilloso error 404, pienso: “Y si pruebo a ponerle la extensión a producto y tirar directamente una consulta en el id?” .</p>
+<p>Y ahí empezó la fiesta o el desastre, como lo queráis llamar.</p>
+<p>Tras inyectar manualmente y ver que me devolvía la versión de la base de datos, procedí a inyectar automáticamente con sqlmap.</p>
+<p>Una vez con la tabla usuarios en la mano, revise a ver que usuarios eran los que mas se repetían. Habían dos usuarios que se repetían que eran administradores en todos los sitios hosteados por esta empresa y usaban siempre la misma contraseña.</p>
+<p>Así que, decidí echar un vistazo a su pagina principal, y de paso, saber si también era vulnerable o no.</p>
+<p>Revisando un poco el pie de la web para ver como ponerme en contacto con ellos después, vi que estaban asociados a las comunidades de diseñadores web de Granada, además de ser una empresa joven y emprendedora.</p>
+<p><img src="/blog/img/granada.png" alt=""></p>
+<p>Así que, decidido, accedí al panel de administración, y subí una shell. Estuve curioseando un poco para ver los limites del usuario propietario de la web. Me impresione al saber que podía llegar a ver el contenido de /usr/home/ viendo todas las web almacenadas en el servidor.</p>
+<p>Claramente, esto no me bastaba, y me fije en los permisos de las carpetas. Tenemos permiso de ejecución en todas, y sabiendome de antemano la ruta donde se alojaban los archivos de las diferentes web (/usr/home/usuario/www/) procedí a investigar aun mas, pero tenia que hacer uso de otra shell ya que, esta no me permitía precisamente hacer lo que yo quería.</p>
+<p>Subí una shell cgi y la escondí en un directorio que no usaban mucho, y con esa shell pude hacer lo que me proponía desde el principio.</p>
+<p>Una vez dentro de la shell cgi, fui carpeta por carpeta, buscando los archivos de configuración tanto del CMS propio como de WordPress (Averigue que habia varios WordPress instalados paseandome de dominio en dominio) y mostrandolos con cat, para luego posteriormente guardarlos en un archivo de texto en mi propio PC que después eliminaría.</p>
+<p>Una vez con los usuarios y passwords de conexión a las bases de datos, el crearme una cuenta y darme permisos de administrador tanto en WordPress como en el CMS propio era coser y cantar.</p>
+<p>Y eso es todo por ahora, seguiremos con la segunda parte, que es cuanto menos, mas de lo mismo, pero mas interesante y con demasiados clientes.</p>
+
+    <h4><a href="http://localhost:1313/"></a></h4>
+</div>
+
+
+        </div><footer class="container">
+    <hr class="soften">
+    <p>
+&copy; 
+
+    Cristian Garcia Quevedo
+
+<span id="thisyear">2025</span>
+
+    | El blog de TFujiwara
+
+
+</p>
+    <p class="text-center">
+        
+        <a href="https://twitter.com/TFujiwara86">Twitter</a> 
+        <a href="https://www.linkedin.com/in/cgarciaquevedo/">Linkedin</a> 
+        <a href="https://github.com/TFujiwara">GitHub</a> 
+        <a href="https://gitlab.com/TFujiwara">GitLab</a>
+    </p>
+</footer>
+
+</body><link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/bootstrap-responsive.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap-386.js"></script>
+<script src="/js/bootstrap-transition.js"></script>
+<script src="/js/bootstrap-alert.js"></script>
+<script src="/js/bootstrap-modal.js"></script>
+<script src="/js/bootstrap-dropdown.js"></script>
+<script src="/js/bootstrap-scrollspy.js"></script>
+<script src="/js/bootstrap-tab.js"></script>
+<script src="/js/bootstrap-tooltip.js"></script>
+<script src="/js/bootstrap-popover.js"></script>
+<script src="/js/bootstrap-button.js"></script>
+<script src="/js/bootstrap-collapse.js"></script>
+<script src="/js/bootstrap-carousel.js"></script>
+<script src="/js/bootstrap-typeahead.js"></script>
+<script src="/js/bootstrap-affix.js"></script>
+<script>
+    _386 = { 
+        fastLoad: false ,
+        onePass: false , 
+        speedFactor: 1 
+    };
+
+    
+    function ThisYear() {
+        document.getElementById('thisyear').innerHTML = new Date().getFullYear();
+    };
+</script>
+</html>
