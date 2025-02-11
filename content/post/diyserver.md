@@ -22,17 +22,17 @@ Más adelante tocaré el tema de confeccionar un PC Gaming Ryzen, comprando uno 
 
 Bueno, siguiendo con el tema, primeramente empezaremos con la base, aquí lo que deberemos buscar principalmente son los combos de placa base, procesador y RAM. Con una simple busqueda en el buscador de la web, ya nos aparecen miles de ellos.
 
-![](/blog/img/alie1.png)
+![](/img/alie1.png)
 
 Depende de nuestras necesidades, podemos optar por una placa de un único procesador Xeon, o de una dual. En este caso ficticio de diseño de un presupuesto para un servidor de estar por casa, pero que aguante lo suyo, usaremos una placa base con doble procesador Xeon. El combo que adquiriremos ficticiamente es este, que nos lleva, además de 128GB de RAM y los dos procesadores, un NVME de 512GB listo para montar en la placa y ponerle el sistema operativo que más rabia nos de. **Especial hincapie en que la placa que compremos debe llevar gráfica integrada.**
 
-![](/blog/img/alie2.png)
+![](/img/alie2.png)
 
 **NOTA DEL AUTOR: muchas de estas placas chinas tienen chips reinjertados, así que en el caso de necesitar un RAID gestionado por hardware, en el caso de que nuestro servidor sea un NAS o un servidor de virtualizacion o almacenamiento/proceso de datos, nos será necesario una controladora RAID.**
 
 Como he indicado en la nota, nosotros al querer montar el servidor para virtualización, nos tocará buscar una controladora RAID PCI para ponersela a la placa y que esta gestione el enorme RAID de discos SATA, y como podreís observar, hay miles de ellas.
 
-![](/blog/img/alie3.png)
+![](/img/alie3.png)
 
 Una vez tengamos el hardware principal decidido, pasaremos a la siguente fase, que es la compra de los discos de almacenamiento.
 
@@ -44,7 +44,7 @@ Aquí, podemos optar por las multiples vías que hay: Amazon, PCComponentes… p
 
 Yo prefiero coger siempre los Western Digital Red, me gustan por el rendimiento que tienen a la hora de usarse en un servidor. Aqui los tenemos desde 2TB hasta 14TB, a cada cual más caro.
 
-![](/blog/img/alie4.png)
+![](/img/alie4.png)
 
 ## La caja y su refrigeración
 
@@ -52,19 +52,19 @@ Ahora nos toca elegir una caja acorde para nuestro servidor. En este caso, al se
 
 En este caso, nuestro cometido es usar una caja de sobremesa, para que el servidor no nos ocupe un sitio exagerado en nuestro despacho, y hemos elegido esta.
 
-![](/blog/img/alie5.png)
+![](/img/alie5.png)
 
 Como veréis, en la propia tienda incluso nos recomiendan usar tambien sus fuentes de alimentación modulares, que son altamente recomendables por que podemos sustituir los cables si estos estan dañados. En este caso es ideal, por que a parte de la tipica alimentación de 24 pines, la placa que vamos a usar tambien nos exige una alimentación adicional por CPU, con un conector de 8 pines.
 
-![](/blog/img/alie6.png)
+![](/img/alie6.png)
 
 En temas de refrigeración, ya no toco Aliexpress, ya vamos a Amazon, PCComponentes, etc. Yo montaria unos Noctua en esta caja y con eso lo dejaria listo. Pero si os gusta más la refrigeración liquida, esta caja lo soporta.
 
 Y si queremos mirar otro tipo de cajas, algo más serias y listas para enrackar, en Aliexpress hay, no es ningun problema pillarlas aqui. Hay hasta de servidor NAS incluso.
 
-![](/blog/img/alie7.png)
+![](/img/alie7.png)
 
-![](/blog/img/alie8.png)
+![](/img/alie8.png)
 
 ## Conclusiones
 

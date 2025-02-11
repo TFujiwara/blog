@@ -7,7 +7,7 @@ author = "Cristian Garcia Quevedo"
 lastmod = "2020-06-08"
 +++
 
-![](/blog/img/cover_hackstory.jpg)
+![](/img/cover_hackstory.jpg)
 
 Conozcamos a Mercè Molist, a.k.a morgana, M&M o merce.
 

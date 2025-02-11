@@ -20,11 +20,11 @@ Lo primero de todo, es que el subsistema no corre de ninguna manera dentro del h
 
 Lo segundo, las unidades del sistema de Windows, están mapeadas en /mnt, siendo totalmente accesibles y podiendo leer y escribir en las mismas.
 
-![](/blog/img/bash1.png)
+![](/img/bash1.png)
 
 Tercero, el subsistema usa un kernel customizado por parte de Microsoft (y que se actualiza mediante Windows Update), y este no es Open Source como la mayoría esperaba. Si quieres actualizar el kernel por el actual (4.8.12) tienes que hacer virguerias para actualizarlo, tanto el propio kernel, como el sistema operativo del mismo (Ubuntu).
 
-![](/blog/img/bash2.png)
+![](/img/bash2.png)
 
 Cuarto, hay muchas maneras detalladas en las que Windows podría inyectar codigo en el subsistema Linux, y a la inversa. Por ejemplo, si un ransom infecta la parte Linux de Windows 10, y sabiendo que monta las unidades del sistema Windows en /mnt, menuda fiesta tendremos montada...
 

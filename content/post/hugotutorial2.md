@@ -10,7 +10,7 @@ Bienvenidos a esta segunda parte del tutorial del framework HUGO! Como dije al f
 
 Primeramente crearemos la estructura nuestro blog, para ello, crearemos una carpeta donde queramos situar la estructura del mismo. Yo la he creado en Documentos y la he llamado blog.
 
-![](/blog/img/tuto1.png)
+![](/img/tuto1.png)
 
 Una vez creada, entramos en la carpeta desde la terminal de comandos, y creamos un nuevo skeleton de HUGO con el siguiente comando:
 
@@ -18,7 +18,7 @@ Una vez creada, entramos en la carpeta desde la terminal de comandos, y creamos 
 
 Al ejecutarlo, nos saldrá el siguiente mensaje:
 
-![](/blog/img/tuto2.png)
+![](/img/tuto2.png)
 
 Indicándonos que ya tenemos la estructura de directorios lista para usar, y que tendremos que descargar un tema para darle un aspecto visual llamativo al blog, además de indicarnos que podemos lanzar el servidor de desarrollo para poder ver los cambios que realicemos en el sitio web en tiempo real.
 
@@ -26,7 +26,7 @@ Una vez realizado, cambiaremos de directorio a la carpeta correspondiente con el
 
 La estructura de directorios de HUGO es la siguiente:
 
-![](/blog/img/tuto3.png)
+![](/img/tuto3.png)
 
 Los temas o plantillas para la web los podemos conseguir aquí: [https://themes.gohugo.io/](https://themes.gohugo.io/)
 
@@ -38,7 +38,7 @@ Una vez clonado, entramos en la carpeta del tema, y dentro de la misma, nos enco
 
 Una vez lo tengamos copiado, ya podremos ejecutar el servidor web interno de HUGO, con el cual, podremos ver los cambios que hagamos en nuestra web,en vivo y en directo. Este servidor lo arracaremos con el comando **hugo serve** y accederemos a la web mediante nuestro navegador web favorito y poniendo **localhost:1313** en la barra de direcciones.
 
-![](/blog/img/tuto4.png)
+![](/img/tuto4.png)
 
 Recomiendo antes que nada, cambiar en el config.toml, la variable **baseURL** para que apunte a **/**, por que si no, da problemas al cambiar de página en Firebase y cambiar la variable **languagecode** por el lenguaje que estemos usando en el blog, por ejemplo, **es**.
 
@@ -55,7 +55,7 @@ themes/my-theme/archetypes/default.md
 
 También podemos realizarlo de forma manual, como, por ejemplo, en el caso de mi blog, donde copio y pego el **front matter** o las cabeceras del fichero Markdown que identifican al contenido de dentro como un post.
 
-![](/blog/img/tuto5.png)
+![](/img/tuto5.png)
 
 Cada tema llevará sus archetypes especificos, y los podremos copiar a nuestro proyecto desde su carpeta.
 
@@ -63,13 +63,13 @@ También puede diferir de que el tema, como es con el caso del CV online, no ten
 
 El **front matter** lleva sus propias variables definidas, donde, por ejemplo, como es en el caso de un blog, podemos decir a que categoría pertenece el post, que alias tiene, las taxonomías, el autor del post, la fecha del mismo y el titulo y su descripción.
 
-![Muestra del config.toml del CV online](/blog/img/tuto6.png)
+![Muestra del config.toml del CV online](/img/tuto6.png)
 
 Todo el contenido se guarda y distribuye en archivos de formato Markdown (.md), con lo cual, es aconsejable mirar esta guía del marcado para tener una ayuda a la hora de escribir los posts: [https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 El contenido que se escriba en los posts va despúes del **front matter**, el comienzo del cual he delimitado en la imagen con una flecha roja, y salvo alguna variación en forma de shortcodes para insertar imagenes más rápido o cierto contenido dinámico, el resto del marcado funciona igual que en la guía.
 
-![Despúes de la flecha roja es donde empezaría el contenido del post](/blog/img/tuto7.png)
+![Despúes de la flecha roja es donde empezaría el contenido del post](/img/tuto7.png)
 
 Algunos de los shortcodes disponibles están en esta web: [https://gohugo.io/content-management/shortcodes/](https://gohugo.io/content-management/shortcodes/)
 

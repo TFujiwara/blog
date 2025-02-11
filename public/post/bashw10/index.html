@@ -66,9 +66,9 @@
 <p>Y cuales son las razones por las que el subsistema es inseguro?</p>
 <p>Lo primero de todo, es que el subsistema no corre de ninguna manera dentro del hipervisor Hyper-V que posee el propio Windows, teniendo acceso al hardware del equipo.</p>
 <p>Lo segundo, las unidades del sistema de Windows, están mapeadas en /mnt, siendo totalmente accesibles y podiendo leer y escribir en las mismas.</p>
-<p><img src="/blog/img/bash1.png" alt=""></p>
+<p><img src="/img/bash1.png" alt=""></p>
 <p>Tercero, el subsistema usa un kernel customizado por parte de Microsoft (y que se actualiza mediante Windows Update), y este no es Open Source como la mayoría esperaba. Si quieres actualizar el kernel por el actual (4.8.12) tienes que hacer virguerias para actualizarlo, tanto el propio kernel, como el sistema operativo del mismo (Ubuntu).</p>
-<p><img src="/blog/img/bash2.png" alt=""></p>
+<p><img src="/img/bash2.png" alt=""></p>
 <p>Cuarto, hay muchas maneras detalladas en las que Windows podría inyectar codigo en el subsistema Linux, y a la inversa. Por ejemplo, si un ransom infecta la parte Linux de Windows 10, y sabiendo que monta las unidades del sistema Windows en /mnt, menuda fiesta tendremos montada&hellip;</p>
 <p>Pero, hay un peligro para los usuarios de a pie? De momento no, por que esta caracteristica no esta muy extendida, y por lo tanto, no llama la atención de los ciberdelincuentes, aunque no se puede asegurar que ya este circulando algun exploit salvaje que afecte a esto.</p>
 <p>Por lo tanto, cual es mi consejo? Montaros un arranque dual, y no activeis eso de Bash en Windows, contra mas lejos de eso, mejor.</p>

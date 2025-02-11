@@ -16,7 +16,7 @@ Viendo una de estas paginas, descubro algo que me llama muchísimo la atención,
 
 Pasando directamente a la acción, compruebo que el parámetro es vulnerable pero me encuentro con una sorpresa, me devuelve un error 404.
 
-![](/blog/img/4041.png)
+![](/img/4041.png)
 
 Una vez que me había devuelto el maravilloso error 404, pienso: “Y si pruebo a ponerle la extensión a producto y tirar directamente una consulta en el id?” .
 
@@ -30,7 +30,7 @@ Así que, decidí echar un vistazo a su pagina principal, y de paso, saber si ta
 
 Revisando un poco el pie de la web para ver como ponerme en contacto con ellos después, vi que estaban asociados a las comunidades de diseñadores web de Granada, además de ser una empresa joven y emprendedora.
 
-![](/blog/img/granada.png)
+![](/img/granada.png)
 
 Así que, decidido, accedí al panel de administración, y subí una shell. Estuve curioseando un poco para ver los limites del usuario propietario de la web. Me impresione al saber que podía llegar a ver el contenido de /usr/home/ viendo todas las web almacenadas en el servidor.
 
