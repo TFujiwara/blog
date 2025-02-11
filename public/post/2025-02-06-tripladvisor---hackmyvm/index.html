@@ -65,25 +65,52 @@
 <p>El comando a utilizar en este caso es <code>arp-scan --local-net | grep 08:00:27</code>.</p>
 <p>Hay que recordar que, al estar en entorno local, podemos usar arp-scan sin problema, pero si estamos en entorno corporativo, es mejor utilizar <em>netdiscover</em>, con la siguiente sintaxis: <code>netdiscover -i (nombre de la interfaz) -r</code>.</p>
 <p>Una vez ya descubierta la dirección IP de la máquina, seguidamente ejecutaremos <em>nmap</em> para realizar un escaneo de puertos y ver que nos encontramos en esta máquina.</p>
-<p><img src="/img/tripl1.png" alt="Escaneo con nmap a la máquina virtual del reto"></p>
+<p><img src="/blog/img/tripl1.png" alt="Escaneo con nmap a la máquina virtual del reto"></p>
 <p>Vemos que el escaneo nos devuelve varios puertos abiertos, vamos a ver que nos espera tras el puerto 8080, que como bien nos indica <em>nmap</em>, es un servidor Apache que está ejecutandose bajo un sistema operativo Windows.</p>
 <p>Con tan solo acceder mediante navegador al puerto 8080, vemos que nos devuelve una web de lo que parece ser una app de reseñas de viajes.</p>
-<p><img src="/img/tripl2.png" alt="Acceso a la web del reto"></p>
+<p><img src="/blog/img/tripl2.png" alt="Acceso a la web del reto"></p>
 <p>De forma muy clara, vemos que tras acceder al puerto 8080 con el navegador, nos redigire a la web y en la URL vemos <strong>wordpress</strong> con lo cual, concluimos que es una web realizada con Wordpress para a continuación, aplicarle un escaneo más profundo de posibles vulnerabilidades en sus temas o plugins, con la herramienta <em>wp-scan</em>.</p>
-<p><img src="/img/tripl3.png" alt="Escaneo de vulnerabilidades con wp-scan"></p>
+<p><img src="/blog/img/tripl3.png" alt="Escaneo de vulnerabilidades con wp-scan"></p>
 <p>Al terminar el escaneo, como se puede comprobar en esta captura, nos devuelve la versión 1.1 de un plugin de edición que detecta mediante el readme, siendo el plugin Site-Editor que el propio readme menciona pero que no ha podido detectar de forma correcta wp-scan.</p>
 <p>Con la detección del mismo, en exploit-db nos encontramos que este plugin es vulnerable a LFI (Local File Inclusion): <a href="https://www.exploit-db.com/exploits/44340">WordPress Plugin Site Editor 1.1.1 - Local File Inclusion</a></p>
 <p>Observando tambien un poco el entorno web, vemos que en nuestro navegador, al haber accedido a la web, nos aparece el favicon de XAMPP, dandonos a entender que la web está montada sobre este programa.</p>
-<p><img src="/img/tripl4.png" alt="Favicon de XAMPP"></p>
+<p><img src="/blog/img/tripl4.png" alt="Favicon de XAMPP"></p>
 <p>Sabiendo esto, creamos una wordlist para usar con <em>ffuf</em> y fuzzear la ruta afectada por la vulnerabilidad hasta que nos dé una peticion 200 en un fichero del sistema que podamos ver, que en este caso, es el log de apache.</p>
-<p><img src="/img/tripl5.png" alt="Fuzzeando con FFuF"></p>
+<p><img src="/blog/img/tripl5.png" alt="Fuzzeando con FFuF"></p>
 <p>Probamos a acceder al log de apache mediante nuestro navegador para ver si contesta y coincide con lo que nos ha devuelto <strong>ffuf</strong>.</p>
-<p><img src="/img/tripl6.png" alt="Resultado del comando enviado"></p>
+<p><img src="/blog/img/tripl6.png" alt="Resultado del comando enviado"></p>
 <p>Ahora, intentaremos ver si, mediante una peticion CURL con una pequeña webshell en PHP, nos hace caso al pedirle que nos muestre el contenido del directorio, simplemente para verificar si hay opciones deshabilitadas en PHP o se han dejado tal cual por defecto.</p>
 <p>Al ejecutar el comando, la web nos contesta, por lo cual, hemos inyectado el comando con éxito.</p>
-<p><img src="/img/tripl7.png" alt="Mandando una peticion CURL con una webshell"></p>
+<p><img src="/blog/img/tripl7.png" alt="Mandando una peticion CURL con una webshell"></p>
 <p>A continuación, encontraremos la salida del comando en el fichero log de apache, al final del todo, al consultarlo de nuevo con nuestro navegador.</p>
-<p><img src="/img/tripl8.png" alt="Resultado del comando enviado"></p>
+<p><img src="/blog/img/tripl8.png" alt="Resultado del comando enviado"></p>
+<p>Como ya hemos visto que el sistema responde a los comandos que se le envían mediante la petición CURL, crearemos un payload en formato Powershell para crear una reverse shell con <em>msfvenom</em> que escuche en el puerto 1337 la conexión que nosotros realizaremos mediante la consola de metasploit, para que nos devuelva un meterpreter.</p>
+<p><img src="/blog/img/tripl9.png" alt="Creación del payload"></p>
+<p>Una vez que hemos creado el payload, hacemos un <em>cat</em> al fichero donde hemos guardado el mismo, podemos observar que el payload ya está listo para ser lanzado, pero aún nos queda una cosa, que es integrarlo con CURL.</p>
+<p><img src="/blog/img/tripl10.png" alt="Creación del payload"></p>
+<p>A continuación, cogeremos la parte encriptada del payload y el comando que llama a Powershell, y los agregaremos a una petición CURL, y dejaremos preparada esta petición en un script de bash para poder ejecutarla de forma comoda.</p>
+<p><img src="/blog/img/tripl11.png" alt="Integración con CURL del Payload"></p>
+<p>Seguidamente entraremos en la consola de metasploit, y desde la misma, configuraremos el uso de un handler, y también configuraremos el uso de un payload de shell inversa mediante el puerto TCP 1337 a un sistema operativo Windows, configurandolo con la IP de nuestra máquina atacante y el puerto designado anteriormente, y ejecutaremos el exploit.</p>
+<p><img src="/blog/img/tripl12.png" alt="Ejecución de la shell inversa"></p>
+<p>Una vez ejecutado, metasploit quedará a la espera de recibir una conexión por el puerto 1337. Ahí es cuando ejecutaremos la peticion CURL que hemos confeccionado anteriormente y, navegando a la misma web donde podemos ver el log de Apache, estableceremos la conexión con la shell inversa, dando como resultado que se nos abra una sesión de meterpreter.</p>
+<p><img src="/blog/img/tripl13.png" alt="Conexión establecida con Meterpreter"></p>
+<p>Una vez tenemos la conexión establecida, veremos que estamos como el usuario <strong>websvc</strong>, y procederemos a buscar la flag de usuario en el directorio del usuario, que en este caso, se encuentra en la carpeta <strong>Desktop</strong> del mismo directorio de usuario.</p>
+<p><img src="/blog/img/tripl14.png" alt="Encontrando la flag de usuario en el sistema"></p>
+<p>Ahora pasaremos a la tarea de vulnerar por completo el servidor y conseguir la flag del usuario <strong>Administrador</strong> o <strong>Administrator</strong> del sistema. Para ello, pasaremos la sesión que tenemos abierta de meterpreter a segundo plano con el comando <em>background</em>, y a continuación, buscaremos un exploit compatible para la máquina Windows usando el local exploit suggester de metasploit.</p>
+<p><img src="/blog/img/tripl15.png" alt="Configurando el exploit suggester"></p>
+<p>Como podréis observar, hacemos tambien un listado de las sesiones activas, para asegurarnos el ID de la sesión donde vamos a inyectar el exploit suggester. Como solo tenemos esa sesión, configuramos el exploit suggester para que apunte al ID de esa sesión y luego ejecutamos la tarea.</p>
+<p><img src="/blog/img/tripl16.png" alt="Terminando de configurar el exploit suggester y lanzandolo "></p>
+<p>Una vez ejecutamos el exploit suggester, vemos que nos aparecerán varios exploits a los cuales la máquina es vulnerable, de todos ellos, elegiremos el exploit <strong>ms016_075_reflection_juicy</strong>.</p>
+<p><img src="/blog/img/tripl17.png" alt="Buscando el exploit en los resultados del exploit suggester"></p>
+<p>A continuación, le diremos a metasploit que use ese exploit, y lo configuraremos para que se ejecute en la sesión de meterpreter que hemos puesto anteriormente en segundo plano y usando el puerto 9999 para que espere a recibir una conexión entrante por ese mismo puerto.</p>
+<p><img src="/blog/img/tripl18.png" alt="Configurando el exploit"></p>
+<p>Una vez lanzamos el exploit, este nos devolverá de nuevo una shell inversa en una sesion de meterpreter, pero ahora, como el usuario <strong>NT AUTHORITY/SYSTEM</strong>, el usuario de privilegios más altos en Windows y el equivalente a <strong>root</strong> en Linux.</p>
+<p><img src="/blog/img/tripl19.png" alt="Ya somos superusuario de Windows"></p>
+<p>Ahora, solo tendremos que invocar una shell desde el meterpreter para poder desplazarnos libremente por todos los directorios del sistema.</p>
+<p><img src="/blog/img/tripl20.png" alt="Invocamos de nuevo la shell"></p>
+<p>Y por ultimo, navegamos hasta el directorio <strong>Desktop</strong> del usuario Administrator y con esto, acabamos la máquina y podemos subir las flags a la plataforma.</p>
+<p><img src="/blog/img/tripl21.png" alt="Invocamos de nuevo la shell"></p>
+<p>Con esto, terminamos aquí el Writeup de la máquina Tripladvisor. Espero que os haya gustado y que, si lo habéis usado para resolver la máquina de primeras, lo volvaís a intentar sin mirar este Writeup para afianzar conocimientos, y os animo a seguir practicando con estos retos.</p>
 
     <h4><a href="http://localhost:1313/"></a></h4>
 </div>
