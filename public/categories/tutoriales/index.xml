@@ -27,7 +27,7 @@
       <link>http://localhost:1313/post/hugotutorial2/</link>
       <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/hugotutorial2/</guid>
-      <description>&lt;p&gt;Bienvenidos a esta segunda parte del tutorial del framework HUGO! Como dije al final del post anterior, este cubrirá la creación de la estructura de directorios del blog, además de como crear y editar contenido.&lt;/p&gt;&#xA;&lt;p&gt;Primeramente crearemos la estructura nuestro blog, para ello, crearemos una carpeta donde queramos situar la estructura del mismo. Yo la he creado en Documentos y la he llamado blog.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/img/tuto1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Una vez creada, entramos en la carpeta desde la terminal de comandos, y creamos un nuevo skeleton de HUGO con el siguiente comando:&lt;/p&gt;</description>
+      <description>&lt;p&gt;Bienvenidos a esta segunda parte del tutorial del framework HUGO! Como dije al final del post anterior, este cubrirá la creación de la estructura de directorios del blog, además de como crear y editar contenido.&lt;/p&gt;&#xA;&lt;p&gt;Primeramente crearemos la estructura nuestro blog, para ello, crearemos una carpeta donde queramos situar la estructura del mismo. Yo la he creado en Documentos y la he llamado blog.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/tuto1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Una vez creada, entramos en la carpeta desde la terminal de comandos, y creamos un nuevo skeleton de HUGO con el siguiente comando:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

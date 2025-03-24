@@ -646,11 +646,11 @@ a:focus {
 }
 
 img {
-  -webkit-filter: contrast(800%);
+  -webkit-filter: contrast(100%);
      -moz-filter: contrast(1000%);
       -ms-filter: contrast(800%);
        -o-filter: contrast(800%);
-          filter: contrast(1000%);
+          filter: contrast(100%);
 }
 
 p {

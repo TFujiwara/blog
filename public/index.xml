@@ -6,8 +6,15 @@
     <description>Recent content on El blog de TFujiwara</description>
     <generator>Hugo</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 06 Feb 2025 01:19:39 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Feb 2025 16:55:18 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hosting (Vulnyx)</title>
+      <link>http://localhost:1313/post/2025-02-24-hosting-vulnyx/</link>
+      <pubDate>Mon, 24 Feb 2025 16:55:18 +0000</pubDate>
+      <guid>http://localhost:1313/post/2025-02-24-hosting-vulnyx/</guid>
+      <description>&lt;p&gt;Hola a todos, hoy os traigo un Writeup del reto Hosting de la plataforma Vulnyx, en la cual nos enfrentamos a un sistema Windows. ¡Veamos el paso por paso hasta conseguir resolver el reto!&lt;/p&gt;&#xA;&lt;p&gt;En primer lugar, vamos a realizar una enumeracion de los puertos que están abiertos en el servidor mediante la herramienta &lt;em&gt;nmap&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/cap0.png&#34; alt=&#34;Enumeracion de puertos mediante nmap&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Una vez realizado el escaneo de puertos, vemos que tenemos accesibles los puertos HTTP (80), SMB(445) y WinRM (47005).&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Tripladvisor (HackMyVM)</title>
       <link>http://localhost:1313/post/2025-02-06-tripladvisor---hackmyvm/</link>

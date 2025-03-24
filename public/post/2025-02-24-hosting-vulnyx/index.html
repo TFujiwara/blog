@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>El blog de TFujiwara</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#000084" />
+    <link rel="icon" href="http://localhost:1313//favicon.ico">
+    <link rel="canonical" href="http://localhost:1313/">
+    
+    
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></button>
+            <a class="brand" href="http://localhost:1313/">El blog de TFujiwara</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    
+                    
+                        
+                            <li>
+                                <a href="https://tfujiwara.github.io/cv/">
+                                    
+                                    <span>Curriculum Vitae</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/about/">
+                                    
+                                    <span>Sobre mí</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/post/">
+                                    
+                                    <span>All posts</span>
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav><div id="content" class="container">
+
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>Hosting (Vulnyx) - Mon, Feb 24, 2025</h1>
+    </div>
+    <p class="lead">Writeup del reto Hosting de la plataforma Vulnyx</p>
+    <p>Hola a todos, hoy os traigo un Writeup del reto Hosting de la plataforma Vulnyx, en la cual nos enfrentamos a un sistema Windows. ¡Veamos el paso por paso hasta conseguir resolver el reto!</p>
+<p>En primer lugar, vamos a realizar una enumeracion de los puertos que están abiertos en el servidor mediante la herramienta <em>nmap</em>.</p>
+<p><img src="/img/cap0.png" alt="Enumeracion de puertos mediante nmap"></p>
+<p>Una vez realizado el escaneo de puertos, vemos que tenemos accesibles los puertos HTTP (80), SMB(445) y WinRM (47005).</p>
+<p>A continuación, con la herramienta <em>dirbuster</em>, haremos un ataque de fuerza bruta con una lista de directorios al puerto 80 del servidor, para encontrar el directorio donde está montada la web o si hay algún directorio oculto con información interesante para la resolución del reto.</p>
+<p><img src="/img/hosting1.png" alt="Ataque de fuerza bruta con dirbuster"></p>
+<p>Observamos que <em>dirbuster</em> ha encontrado el directorio <strong>speed</strong>, con lo cual, navegaremos hacia ese directorio en nuestro navegador web y veremos que se nos presenta la página web de un hosting de servidores web.</p>
+<p><img src="/img/hosting3.png" alt="Página inicial del hosting de servidores web"></p>
+<p>Buscamos en la propia página web, si hay información interesante para poder ayudarnos en la resolución del reto, y vemos a continuación una sección de equipo donde podemos ver algunos de los correos electronicos corporativos de las personas que trabajan allí.</p>
+<p><img src="/img/hosting4.png" alt="Sección de equipo de la página web"></p>
+<p>Esto nos puede servir para intentar un ataque por fuerza bruta mediante <em>crackmapexec</em> al servicio SMB para saber si la cuenta usa alguna contraseña debil o que haya estado en una brecha de datos reciente.</p>
+<p>A continuación colocamos los usuarios que aparecen en ese mismo lugar en un fichero, y se lo pasamos a <em>crackmapexec</em> junto con la lista <strong>rockyou</strong> para atacar mediante fuerza bruta el servicio de SMB.</p>
+<p>En poco tiempo, tendremos un resultado positivo de este ataque por fuerza bruta.</p>
+<p><img src="/img/hosting5.png" alt="Ataque por fuerza bruta a SMB"></p>
+<p>Una vez con la contraseña del usuario <em>p.smith</em>, haremos uso de la herramienta <em>smbmap</em> para ver en que carpetas compartidas tenemos permisos de lectura y escritura.</p>
+<p><img src="/img/hosting6.png" alt="Vemos que permisos tenemos con SMBMAP"></p>
+<p>Vemos que tenemos permisos de lectura en la carpeta <strong>$IPC</strong>, y con esto, podemos proceder a enumerar usuarios con la herramienta <em>emnum4linux</em>, la cual nos devuelve el siguiente listado de usuarios.</p>
+<p><img src="/img/hosting9.png" alt="Listado de usuarios de enum4linux"></p>
+<p>Con la descripción que vemos en el usuario m.davis, el cual, suponemos que es la contraseña de su usuario, recopilamos todos los usuarios en una lista y con <em>crackmapexec</em>, comprobamos cual de los usuarios tiene permiso para acceder vía WinRM, haciendo uso de la contraseña ya descubierta.</p>
+<p><img src="/img/hosting7.png" alt=""></p>
+<p>Nos conectaremos al servicio de WinRM mediante la herramienta <em>Evil-WinRM</em> con el usuario que anteriormente hemos descubierto que tiene permisos de conexión con <em>crackmapexec</em> y vemos que automaticamente nos devuelve una shell del sistema.</p>
+<p><img src="/img/hosting10.png" alt=""></p>
+<p>Una vez aquí, comprobaremos que permisos tiene este usuario con el comando <em>whoami priv</em> y vemos que tiene todos los permisos habilitados, sobretodo, uno que nos interesa, que es el de realizar copias de seguridad de archivos y directorios del sistema.</p>
+<p><img src="/img/hosting8.png" alt=""></p>
+<p>Una vez comprobado, copiaremos el fichero SAM y SYSTEM del sistema en una carpeta temporal que crearemos en C:, con la finalidad de descargarlos para luego extraer los hashes.</p>
+<p><img src="/img/hosting11.png" alt=""></p>
+<p>Para descargarlos, haremos uso del comando <em>download</em> y a continuación, el nombre del fichero que queramos descargar.</p>
+<p><img src="/img/hosting12.png" alt=""></p>
+<p>Ahora, volcaremos los hashes con la herramienta <em>impacket-secretsdump</em>, y copiaremos el hash del usuario <em>administrator</em>, para acceder como administrador global a la máquina y así terminar el desafio.</p>
+<p><img src="/img/hosting13.png" alt=""></p>
+<p>Accedemos con <em>Evil-WinRM</em> al servidor, haciendo uso de la opción <em>-H</em> para indicarle a continuación el hash y&hellip; Lo tenemos! Ya hemos conseguido finalizar el reto!</p>
+<p><img src="/img/hosting14.png" alt=""></p>
+<p>Con esto, terminamos aquí el Writeup de la máquina Hosting de Vulnyx. Espero que os haya gustado y que, si lo habéis usado para resolver la máquina de primeras, lo volvaís a intentar sin mirar este Writeup para afianzar conocimientos, y os animo a seguir practicando con estos retos.</p>
+
+    <h4><a href="http://localhost:1313/"></a></h4>
+</div>
+
+
+        </div><footer class="container">
+    <hr class="soften">
+    <p>
+&copy; 
+
+    Cristian Garcia Quevedo
+
+<span id="thisyear">2025</span>
+
+    | El blog de TFujiwara
+
+
+</p>
+    <p class="text-center">
+        
+        <a href="https://twitter.com/TFujiwara86">Twitter</a> 
+        <a href="https://www.linkedin.com/in/cgarciaquevedo/">Linkedin</a> 
+        <a href="https://github.com/TFujiwara">GitHub</a> 
+        <a href="https://gitlab.com/TFujiwara">GitLab</a>
+    </p>
+</footer>
+
+</body><link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/bootstrap-responsive.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap-386.js"></script>
+<script src="/js/bootstrap-transition.js"></script>
+<script src="/js/bootstrap-alert.js"></script>
+<script src="/js/bootstrap-modal.js"></script>
+<script src="/js/bootstrap-dropdown.js"></script>
+<script src="/js/bootstrap-scrollspy.js"></script>
+<script src="/js/bootstrap-tab.js"></script>
+<script src="/js/bootstrap-tooltip.js"></script>
+<script src="/js/bootstrap-popover.js"></script>
+<script src="/js/bootstrap-button.js"></script>
+<script src="/js/bootstrap-collapse.js"></script>
+<script src="/js/bootstrap-carousel.js"></script>
+<script src="/js/bootstrap-typeahead.js"></script>
+<script src="/js/bootstrap-affix.js"></script>
+<script>
+    _386 = { 
+        fastLoad: false ,
+        onePass: false , 
+        speedFactor: 1 
+    };
+
+    
+    function ThisYear() {
+        document.getElementById('thisyear').innerHTML = new Date().getFullYear();
+    };
+</script>
+</html>

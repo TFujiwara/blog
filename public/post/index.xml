@@ -6,8 +6,15 @@
     <description>Recent content in Posts on El blog de TFujiwara</description>
     <generator>Hugo</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 06 Feb 2025 01:19:39 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Feb 2025 16:55:18 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hosting (Vulnyx)</title>
+      <link>http://localhost:1313/post/2025-02-24-hosting-vulnyx/</link>
+      <pubDate>Mon, 24 Feb 2025 16:55:18 +0000</pubDate>
+      <guid>http://localhost:1313/post/2025-02-24-hosting-vulnyx/</guid>
+      <description>&lt;p&gt;Hola a todos, hoy os traigo un Writeup del reto Hosting de la plataforma Vulnyx, en la cual nos enfrentamos a un sistema Windows. ¡Veamos el paso por paso hasta conseguir resolver el reto!&lt;/p&gt;&#xA;&lt;p&gt;En primer lugar, vamos a realizar una enumeracion de los puertos que están abiertos en el servidor mediante la herramienta &lt;em&gt;nmap&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/static/img/cap0.png&#34; alt=&#34;Enumeracion de puertos mediante nmap&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Una vez realizado el escaneo de puertos, vemos que tenemos accesibles los puertos HTTP (80), SMB(445) y WinRM (47005).&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Tripladvisor (HackMyVM)</title>
       <link>http://localhost:1313/post/2025-02-06-tripladvisor---hackmyvm/</link>
@@ -41,7 +48,7 @@
       <link>http://localhost:1313/post/hugotutorial2/</link>
       <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/hugotutorial2/</guid>
-      <description>&lt;p&gt;Bienvenidos a esta segunda parte del tutorial del framework HUGO! Como dije al final del post anterior, este cubrirá la creación de la estructura de directorios del blog, además de como crear y editar contenido.&lt;/p&gt;&#xA;&lt;p&gt;Primeramente crearemos la estructura nuestro blog, para ello, crearemos una carpeta donde queramos situar la estructura del mismo. Yo la he creado en Documentos y la he llamado blog.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/img/tuto1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Una vez creada, entramos en la carpeta desde la terminal de comandos, y creamos un nuevo skeleton de HUGO con el siguiente comando:&lt;/p&gt;</description>
+      <description>&lt;p&gt;Bienvenidos a esta segunda parte del tutorial del framework HUGO! Como dije al final del post anterior, este cubrirá la creación de la estructura de directorios del blog, además de como crear y editar contenido.&lt;/p&gt;&#xA;&lt;p&gt;Primeramente crearemos la estructura nuestro blog, para ello, crearemos una carpeta donde queramos situar la estructura del mismo. Yo la he creado en Documentos y la he llamado blog.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/tuto1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Una vez creada, entramos en la carpeta desde la terminal de comandos, y creamos un nuevo skeleton de HUGO con el siguiente comando:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Bash en Windows 10: ¿Es seguro? ¿O monto mejor un arranque dual?</title>
@@ -55,7 +62,7 @@
       <link>http://localhost:1313/post/hackstory/</link>
       <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/hackstory/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/img/cover_hackstory.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Conozcamos a Mercè Molist, a.k.a morgana, M&amp;amp;M o merce.&lt;/p&gt;&#xA;&lt;p&gt;Una chica de pueblo que en 1995 entro en el oscuro mundo de Internet.&lt;/p&gt;&#xA;&lt;p&gt;Es, como explica el wiki que le fue origen, Hackstory.net, “lo que sabemos sobre la historia de los hackers”.&lt;/p&gt;&#xA;&lt;p&gt;En definitiva, un libro que os recomiendo si quereís escapar de las tardes de aburrimiento.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://hackstory.es/ebook/epub&#34;&gt;Descarga el libro en EPUB&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://hackstory.es/ebook/pdf&#34;&gt;Descarga el libro en PDF&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://hackstory.es/ebook/mobi&#34;&gt;Descarga el libro en MOBI&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/cover_hackstory.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Conozcamos a Mercè Molist, a.k.a morgana, M&amp;amp;M o merce.&lt;/p&gt;&#xA;&lt;p&gt;Una chica de pueblo que en 1995 entro en el oscuro mundo de Internet.&lt;/p&gt;&#xA;&lt;p&gt;Es, como explica el wiki que le fue origen, Hackstory.net, “lo que sabemos sobre la historia de los hackers”.&lt;/p&gt;&#xA;&lt;p&gt;En definitiva, un libro que os recomiendo si quereís escapar de las tardes de aburrimiento.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://hackstory.es/ebook/epub&#34;&gt;Descarga el libro en EPUB&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://hackstory.es/ebook/pdf&#34;&gt;Descarga el libro en PDF&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://hackstory.es/ebook/mobi&#34;&gt;Descarga el libro en MOBI&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hostings: o como cagarla soberanamente - Primera Parte</title>

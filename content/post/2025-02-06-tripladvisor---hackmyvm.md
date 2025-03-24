@@ -110,4 +110,4 @@ Y por ultimo, navegamos hasta el directorio **Desktop** del usuario Administrato
 
 ![Invocamos de nuevo la shell](/img/tripl21.png)
 
-Con esto, terminamos aquí el Writeup de la máquina Tripladvisor. Espero que os haya gustado y que, si lo habéis usado para resolver la máquina de primeras, lo volvaís a intentar sin mirar este Writeup para afianzar conocimientos, y os animo a seguir practicando con estos retos.
+Con esto, terminamos aquí el Writeup de la máquina Tripladvisor de HackMyVM. Espero que os haya gustado y que, si lo habéis usado para resolver la máquina de primeras, lo volvaís a intentar sin mirar este Writeup para afianzar conocimientos, y os animo a seguir practicando con estos retos.
