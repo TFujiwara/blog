@@ -5,7 +5,7 @@ date: 2020-06-08
 
 **Sysadmin de día, infosec de convicción.**
 
-Nacido en 1994 en Vila-real. Empecé con el 386 de mi padre, que ya dice bastante sobre por qué el nombre del blog.
+Nacido en 1994 en Vila-real. Me crié con el 386 de mi padre y años después con Initial D en bucle — dos cosas que, sin saberlo entonces, definieron bastante quién soy
 
 Tengo el Grado Medio en SMR y el Superior en DAW, pero la mayor parte de lo que sé lo aprendí rompiendo cosas por mi cuenta. El hacking, la administración de sistemas, la seguridad... todo autodidacta, todo a base de equivocarme y volver a intentarlo.
 
