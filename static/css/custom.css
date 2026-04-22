@@ -1,0 +1,120 @@
+/* =========================================================
+   custom.css — TFujiwara Blog
+   Override mínimo sobre hugo.386 para añadir identidad.
+   Mantiene la estética terminal/retro, la hace propia.
+   ========================================================= */
+
+/* -- Accent color propio: ámbar en lugar del verde genérico -- */
+:root {
+  --tf-accent:   #e8a020;   /* ámbar cálido, diferenciador */
+  --tf-accent2:  #c47a10;   /* versión más oscura para hover */
+  --tf-terminal: #0d0d0d;   /* fondo ligeramente más oscuro */
+}
+
+/* Título principal del blog */
+.navbar-brand,
+h1.blog-title,
+.site-title {
+  color: var(--tf-accent) !important;
+}
+
+/* Links de navegación — hover en ámbar */
+.navbar-nav a:hover,
+.navbar-nav .nav-link:hover {
+  color: var(--tf-accent) !important;
+  text-decoration: underline;
+}
+
+/* Títulos de post en la lista — resalta el título al hacer hover */
+.list-group-item a:hover,
+h2 a:hover,
+h3 a:hover {
+  color: var(--tf-accent) !important;
+}
+
+/* Subtítulo / descripción del post en el listado */
+.post-summary {
+  font-size: 0.85em;
+  opacity: 0.75;
+  margin-top: 2px;
+  margin-bottom: 4px;
+  font-style: italic;
+}
+
+/* Separador de posts en el listado */
+.list-group-item {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 1px dashed #333;
+}
+
+/* Fecha del post — más sutil */
+.post-date,
+.text-muted {
+  font-size: 0.78em;
+  opacity: 0.6;
+}
+
+/* Badge de categoría */
+.badge {
+  background-color: var(--tf-accent) !important;
+  color: #000 !important;
+  font-weight: bold;
+}
+
+/* Footer — año y copyright */
+footer {
+  border-top: 1px solid #333;
+  padding-top: 12px;
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+footer a:hover {
+  color: var(--tf-accent) !important;
+}
+
+/* Heading en posts — acento en H2/H3 */
+article h2,
+article h3 {
+  color: var(--tf-accent);
+  margin-top: 1.5em;
+}
+
+/* Código inline — más legible */
+code {
+  background: #1a1a1a;
+  color: #8bf;
+  padding: 1px 5px;
+  border-radius: 2px;
+  font-size: 0.9em;
+}
+
+/* Blockquote con borde ámbar */
+blockquote {
+  border-left: 3px solid var(--tf-accent) !important;
+  padding-left: 1em;
+  opacity: 0.85;
+}
+
+/* Tagline en el home — la descripción del blog */
+.mainpage-subtitle,
+.lead,
+p.subtitle {
+  color: #aaa;
+  font-size: 0.9em;
+  margin-bottom: 1.5em;
+}
+
+/* Blink cursor en el título — guiño terminal clásico */
+.navbar-brand::after {
+  content: "_";
+  animation: blink 1s step-end infinite;
+  color: var(--tf-accent);
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}

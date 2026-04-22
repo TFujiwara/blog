@@ -1,104 +1,92 @@
 baseURL = "https://blog.tfujiwara.tech"
+
 title = "El blog de TFujiwara"
+
 languageCode = "es"
-DefaultContentLanguage = "es" # Change this to change the site's language
+
+DefaultContentLanguage = "es"
+
 theme = "hugo.386"
+
 preserveTaxonomyNames = true
 
+# Hugo v0.141+: permite HTML raw en Markdown (necesario para hugotutorial2.md)
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params]
-    # The name to display as main title in the home page
-    mainpagetitle = "El blog de TFujiwara"
 
-    # The subtitle to display under the title in the home page
-    mainpagesubtitle = "Blog personal donde cuento algunas de las investigaciones que he hecho, además de algún que otro tutorial o recomendaciones varias." 
+mainpagetitle = "El blog de TFujiwara"
 
-    # The description of your website. It will be displayed in the home page
-    #mainpagedesc = "This theme is the Hugo port of the BOOTSTRA.386 theme for a cool retro look on your blog. Check the links below to access the posts."
+mainpagesubtitle = "Sysadmin. Seguridad sin humo. Opiniones sin filtro."
 
-    # The name to display in the copyright section in the footer
-    copyrightname = "Cristian Garcia Quevedo"
+copyrightname = "Cristian Garcia Quevedo"
 
-    # The url to use as link in the copyright name in the footer. Leave empty to use none.
-    #copyrighturl = "http://jmf-portfolio.netlify.com"
+showhugo = false
 
-    # Show the "built on Hugo" disclaimer
-    showhugo = false
+# Redes sociales
+twitter  = "https://twitter.com/TFujiwara86"
+linkedin = "https://www.linkedin.com/in/cgarciaquevedo/"
+github   = "https://github.com/TFujiwara"
+gitlab   = "https://gitlab.com/TFujiwara"
+telegram = "https://t.me/SeguridadInformatica"
 
-    # Urls for social networks
-    #facebook = "https://facebook.com"
-    twitter = "https://twitter.com/TFujiwara86"
-    linkedin = "https://www.linkedin.com/in/cgarciaquevedo/"
-    github = "https://github.com/TFujiwara"
-    gitlab = "https://gitlab.com/TFujiwara"
-    telegram = "https://t.me/SeguridadInformatica"
-
-    # Enables or disables the loading animations. false activates them. Default is false.
-    loadfastload = false
-
-    # Sets the speed for the page loading effect. Default is 1.0.
-    loadspeedfactor = 1.0
-
-    # Enables or disables the second flyby cursor. Default is false.
-    loadonepass = false
+loadfastload    = false
+loadspeedfactor = 1.0
+loadonepass     = false
 
 [params.copyright]
-    name = "Cristian Garcia Quevedo"
-
-    # The url to use as link in the copyright name in the footer. Leave empty to use none.
-    #url = "http://jmf-portfolio.netlify.com"
-
-    # Text to go before copyright information
-    #prefix = "[hugo.386 theme by Max le Fou](https://gitlab.com/maxlefou/hugo.386)"
-
-    # Text to go between copyright and hugo disclaimer (if enabled)
-    suffix = "El blog de TFujiwara"
+name   = "Cristian Garcia Quevedo"
+suffix = "El blog de TFujiwara"
 
 [menu]
-  # This displays buttons in the navbar to access your contents
-  [[menu.main]]
-    identifier = "about" # An unique identifier for the button
-    name = "Sobre mí"       # A display name for the button
-    url = "/about/"      # The path to the content. It can lead to a single page (like here)
-    weight = 10          # A number to order the buttons in the navbar
 
-  [[menu.main]]
-    identifier = "curriculum" # An unique identifier for the button
-    name = "Curriculum Vitae"       # A display name for the button
-    url = "https://tfujiwara.github.io/cv/"      # The path to the content. It can lead to a single page (like here)
-    weight = 10          # A number to order the buttons in the navbar  
+[[menu.main]]
+identifier = "about"
+name       = "Sobre mí"
+url        = "/about/"
+weight     = 10
 
-  [[menu.main]]
-    identifier = "posts"
-    name = "All posts"
-    url = "/post/"       # The path can lead to a content folder too.
-    weight = 20
+[[menu.main]]
+identifier = "curriculum"
+name       = "Curriculum Vitae"
+url        = "https://tfujiwara.github.io/cv/"
+weight     = 15
+
+[[menu.main]]
+identifier = "posts"
+name       = "All posts"
+url        = "/post/"
+weight     = 20
 
 [taxonomies]
 category = "categories"
 
 [privacy]
 
-  [privacy.vimeo]
-    disabled = false
-    simple = true
+[privacy.vimeo]
+disabled = false
+simple   = true
 
-  [privacy.twitter]
-    disabled = false
-    enableDNT = true
-    simple = true
+[privacy.x]
+disabled  = false
+enableDNT = true
+simple    = true
 
-  [privacy.instagram]
-    disabled = false
-    simple = true
+[privacy.instagram]
+disabled = false
+simple   = true
 
-  [privacy.youtube]
-    disabled = false
-    privacyEnhanced = true
+[privacy.youtube]
+disabled        = false
+privacyEnhanced = true
 
 [services]
 
-  [services.instagram]
-    disableInlineCSS = true
+[services.instagram]
+disableInlineCSS = true
 
-  [services.twitter]
-    disableInlineCSS = true
+[services.x]
+disableInlineCSS = true
